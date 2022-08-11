@@ -7,13 +7,12 @@ import BatteryAlertIcon from '@mui/icons-material/BatteryAlert';
 
 const Widget = ({ type }) => {
     let data;
-    const amount =100;
+    const amount =120;
     const diff = 20;
     switch(type){
         case "user":
             data={
                 title: "USERS",
-                isMoney: false,
                 link: 'See all users',
                 icon: (<PersonOutlineOutlinedIcon className='icon' style={{
                     backgroundColor: 'rgba(0,0,255,0.2)',
@@ -25,7 +24,6 @@ const Widget = ({ type }) => {
         case "order":
             data={
                 title: "ORDER",
-                isMoney: false,
                 link: 'See all orders',
                 icon: (<AddShoppingCartOutlinedIcon className='icon' style={{
                     backgroundColor: 'rgba(218,165,32,0.2)',
@@ -37,7 +35,6 @@ const Widget = ({ type }) => {
         case "devices":
             data={
                 title: "Device Networks",
-                isMoney: true,
                 link: 'See all devices',
                 icon: (<DevicesIcon className='icon' style={{
                     backgroundColor: 'rgba(0,128,0,0.2)',
@@ -49,7 +46,6 @@ const Widget = ({ type }) => {
         case "alarm":
             data={
                 title: "Alarm",
-                isMoney: true,
                 link: 'See all alarms',
                 icon: (<BatteryAlertIcon className='icon' style={{
                     backgroundColor: 'rgb(255,0,0,0.2)',
@@ -68,7 +64,7 @@ const Widget = ({ type }) => {
         <div className='widget'>
             <div className='left'>
                 <span className='title'>{data.title}</span>
-                <span className='counter'>{data.isMoney && '$'} {amount}</span>
+                <span className='counter'>{amount}</span>
                 <span className='link'>{data.link}</span>
             </div>
             <div className='right'>
