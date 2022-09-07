@@ -4,13 +4,13 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DataTable from "../../components/datatable/DataTable";
 
-const List = () => {
+const List = ({title, name}) => {
     return(
         <div className='list'>
             <Sidebar />
             <div className='listContainer'>
                 <Navbar />
-                <DataTable />
+                <DataTable title={title} name={name}/>
             </div>
         </div>
     )

@@ -3,8 +3,16 @@ import { DataGrid } from '@mui/x-data-grid';
 import {userColumns} from "../../datatablesource";
 import {userRows} from "../../datatablesource";
 import {Link} from 'react-router-dom'
+import {
+    Popover,
+    PopoverTrigger,
+    PopoverContent,
+    PopoverBody,
+    PopoverHeader,
+    PopoverCloseButton
+} from '@chakra-ui/popover'
 
-const DataTable = () => {
+const DataTable = ({title, name}) => {
 
     const actionColumn = [
         {field: 'action', headerName: 'Action', width: 200, renderCell:(params)=>{
@@ -13,8 +21,22 @@ const DataTable = () => {
                    <Link to={'/users/test'} style={{textDecoration: 'none'}}>
                        <div className="viewButton">View</div>
                    </Link>
+                   <Popover>
+                       <PopoverTrigger>
+                           <button><div className="deleteButton">Delete</div></button>
+                       </PopoverTrigger>
+                       <PopoverContent className='popoverBackground'>
+                           <PopoverHeader>Confirmation!</PopoverHeader>
+                           <hr />
+                           <PopoverBody className='body'>
+                               Are you sure you want to delete this user?<br/>
+                               <PopoverCloseButton className='close'><button>No</button></PopoverCloseButton>
 
-                   <div className="deleteButton">Delete</div>
+                               <button className='yes'>Yes</button>
+                           </PopoverBody>
+                       </PopoverContent>
+                   </Popover>
+
                </div>
             )
             }
@@ -24,8 +46,8 @@ const DataTable = () => {
     return(
         <div className='dataTable'>
             <div className='dataTableTitle'>
-                All Users
-                <Link to={'/users/new'} className='link' >
+                {title}
+                <Link to={`/${name}/new`} className='link' >
                     Add New
                 </Link>
             </div>

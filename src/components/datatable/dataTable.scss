@@ -60,6 +60,34 @@
     align-items: center;
     gap: 15px;
 
+    button{
+      background-color: transparent;
+      border: none;
+    }
+    .popoverBackground{
+      background-color: #f5f3f3;
+      padding: 15px;
+      border-radius: 10px;
+
+      .body{
+        .close{
+          margin: 0;
+          padding: 0;
+        }
+        button{
+          color: #1B232D;
+          font-weight: 600;
+          margin: 10px;
+          cursor: pointer;
+        }
+        .yes:hover{
+          color: red;
+          transition: .5s;
+        }
+      }
+
+    }
+
     .viewButton{
       padding: 2px 5px;
       border-radius: 5px;
